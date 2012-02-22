@@ -2,7 +2,7 @@
  * LinkedList.h
  *
  *  Created on: Aug 16, 2010
- *      Author: kpgwinnup
+ *      Author: socketready.com
  */
 
 #ifndef LINKEDLIST_H

@@ -2,7 +2,7 @@
  * LinkedListTester.c
  *
  *  Created on: Aug 16, 2010
- *      Author: kpgwinnup
+ *      Author: socketready.com
  */
 #include <stdio.h>
 #include <stdlib.h>
