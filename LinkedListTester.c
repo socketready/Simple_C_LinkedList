@@ -13,6 +13,7 @@ typedef struct pack{
 }pack;
 
 void print_list(ll_node *head);
+int comp(void *one, void *two);
 
 int main(){
 	int i;
@@ -30,6 +31,13 @@ int main(){
 	ll_remove_index(head,2);
 	ll_reverse(head);
 	print_list(head);
+	
+	pack *temp = malloc(sizeof(pack));
+	pack *t;
+	temp->num = 14;
+	t = (pack *)ll_search(head, (void *)temp, comp);
+
+	printf("%d\n", t->num);
 
 	ll_free_list(head);
 	return 0;
@@ -46,4 +54,17 @@ void print_list(ll_node *head){
 	}
 
 	printf("\n");
+}
+
+int comp(void *one, void *two){
+	pack *item1 = (pack *)one;
+	pack *item2 = (pack *)two;
+	
+	if(item1->num > item2->num){
+		return 1;
+	}else if(item1->num < item2->num){
+		return -1;
+	}else{
+		return 0;
+	}
 }

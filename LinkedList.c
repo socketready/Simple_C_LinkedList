@@ -264,3 +264,18 @@ void ll_remove_item(ll_node *head, void *d, ll_comp_func equals){
 		head->size--;
 	}
 }
+
+/**
+ *	search to find item in a list.  Return pointer to that link
+ */
+void* ll_search(ll_node *head, void *d, ll_comp_func comparison){
+	ll_node *cur;
+	
+	if(head->size == 0)
+		return NULL;
+	
+	for(cur = head->next; cur->next != NULL, comparison(d, cur->data) != 0; cur = cur->next)
+		;
+		
+	return (cur != NULL) ? (void *)cur->data : NULL;
+}

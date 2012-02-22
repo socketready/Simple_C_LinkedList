@@ -114,4 +114,15 @@ void ll_free_list(ll_node *head);
  */
 void ll_add_ordered(ll_node *head, void *d, ll_comp_func comparison);
 
+/**
+ * Added Feb 20, 2012
+ * Method
+ *		ll_search(ll_node *head, void *d, ll_comp_func comparison)
+ * Parameters
+ *		pointer to head, element to match, function which compares
+ * Return
+ * 		void pointer to data element of the first item matching your query
+ */
+void* ll_search(ll_node *head, void *d, ll_comp_func comparison);
+
 #endif
