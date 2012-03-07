@@ -36,6 +36,7 @@ int main(){
 	pack *t;
 	temp->num = 15;
 	t = (pack *)ll_search(head, (void *)temp, comp);
+	
 	if(t != NULL)
 		printf("%d\n", t->num);
 	else
@@ -49,9 +50,8 @@ int main(){
 void print_list(ll_node *head){
 	int i;
 	pack *ret;
-	ll_head *hdata = (ll_head *)head->data;
 
-	for(i=0; i<hdata->size; i++){
+	for(i=0; i<head->size; i++){
 		ret = ll_get_index(head, i);
 		printf("%d ", ret->num);
 	}

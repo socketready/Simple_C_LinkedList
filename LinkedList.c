@@ -274,8 +274,8 @@ void* ll_search(ll_node *head, void *d, ll_comp_func comparison){
 	if(head->size == 0)
 		return NULL;
 	
-	for(cur = head->next; cur->next != NULL && comparison(d, cur->data) != 0; cur = cur->next)
+	for(cur = head->next; cur->data != NULL && comparison(d, cur->data) != 0; cur = cur->next)
 		;
 		
-	return (cur != NULL) ? (void *)cur->data : NULL;
+	return (cur->data != NULL) ? (void *)cur->data : NULL;
 }
