@@ -2,13 +2,13 @@
  * LinkedList.h
  *
  *  Created on: Aug 16, 2010
- *      Author: socketready.com
+ *      Author: kpgwinnup
  */
 
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-typedef int (*ll_comp_func)(void *, void*);
+typedef int (*ll_comp_func)(void *, void *);
 
 typedef struct ll_node{
 	void *data;

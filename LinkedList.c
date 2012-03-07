@@ -2,7 +2,7 @@
  * LinkedList.c
  *
  *  Created on: Aug 16, 2010
- *      Author: socketready.com
+ *      Author: kpgwinnup
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -274,7 +274,7 @@ void* ll_search(ll_node *head, void *d, ll_comp_func comparison){
 	if(head->size == 0)
 		return NULL;
 	
-	for(cur = head->next; cur->next != NULL, comparison(d, cur->data) != 0; cur = cur->next)
+	for(cur = head->next; cur->next != NULL && comparison(d, cur->data) != 0; cur = cur->next)
 		;
 		
 	return (cur != NULL) ? (void *)cur->data : NULL;

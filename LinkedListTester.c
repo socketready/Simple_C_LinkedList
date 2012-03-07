@@ -34,10 +34,12 @@ int main(){
 	
 	pack *temp = malloc(sizeof(pack));
 	pack *t;
-	temp->num = 14;
+	temp->num = 15;
 	t = (pack *)ll_search(head, (void *)temp, comp);
-
-	printf("%d\n", t->num);
+	if(t != NULL)
+		printf("%d\n", t->num);
+	else
+		printf("not found\n");
 
 	ll_free_list(head);
 	return 0;
@@ -47,8 +49,9 @@ int main(){
 void print_list(ll_node *head){
 	int i;
 	pack *ret;
+	ll_head *hdata = (ll_head *)head->data;
 
-	for(i=0; i<head->size; i++){
+	for(i=0; i<hdata->size; i++){
 		ret = ll_get_index(head, i);
 		printf("%d ", ret->num);
 	}
