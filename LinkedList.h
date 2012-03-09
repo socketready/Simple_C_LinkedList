@@ -24,13 +24,13 @@ void* ll_linkedlist_init();
  *	the following methods integrate with the linked list methods but have standard stack names
  *	and custom code if needed.
  */
-void push(ll_node *head, void *d);  //stack method name
-void* pop(ll_node *head);
+void ll_push(ll_node *head, void *d);  //stack method name
+void* ll_pop(ll_node *head);
 
 /**
  *	Queue methods
  */
-void enqueue(ll_node *head, void *d);
+void ll_enqueue(ll_node *head, void *d);
 
 
 /**

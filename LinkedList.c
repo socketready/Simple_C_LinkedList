@@ -24,8 +24,8 @@ void* ll_linkedlist_init(){
  * if the list is empty set next and prev to head and
  * head next and prev to new node
  */
-void push(ll_node *head, void *d){ ll_add_first(head, d); }
-void enqueue(ll_node *head, void *d){ ll_add_first(head, d); }
+void ll_push(ll_node *head, void *d){ ll_add_first(head, d); }
+void ll_enqueue(ll_node *head, void *d){ ll_add_first(head, d); }
 
 void ll_add_first(ll_node *head, void *d){
 	ll_node *temp;
@@ -157,17 +157,28 @@ void* ll_get_first(ll_node *head){
  *
  *	This will retrive and remove first item in the list.  This acts in the stack method call
  */
-void* pop(ll_node *head){
+void* ll_pop(ll_node *head){
 	ll_node *temp;
-	temp = ll_get_first(head);
+	void *data;
+	
+	if(head->size == 0)
+		return NULL;
+	
+	//get first node
+	temp = head->next;
+	
+	//get data from node
+	data = temp->data;
 	
 	//remove first link
-	head->next->next->prev = head;
-	head->next = head->next->next;
+	head->next = temp->next;
+	temp->next->prev = head;
 	
 	head->size--;
 	
-	return temp;
+	free(temp);
+	
+	return data;
 }
 
 
@@ -182,8 +193,11 @@ void* ll_get_last(ll_node *head){
 	return (void *)temp->data;
 }
 
-void* dequeue(ll_node *head){
+void* ll_dequeue(ll_node *head){
 	ll_node *temp;
+	
+	if(head->size == 0)
+		return NULL;
 	
 	temp = ll_get_last(head);
 	
@@ -192,7 +206,7 @@ void* dequeue(ll_node *head){
 	
 	head->size--;
 	
-	return temp;
+	return (void *)temp->data;
 }
 
 
