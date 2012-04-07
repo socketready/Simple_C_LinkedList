@@ -20,6 +20,7 @@ int main(){
 	head = ll_linkedlist_init();
 	for(i=0; i<10; i++)
 	{
+		array[i] = i;
 		printf("%d added to index %d\n", i, i);
 		ll_add_last(head, (void *)&array[i]);
 	}
@@ -33,14 +34,19 @@ int main(){
 	
 	for(i=0; i<10; i++)
 	{
-		void *ptr;
-		ptr = (void *)ll_pop(head);
+		int *ptr;
+		ptr = (int *)ll_pop(head);
 		//ptr = ll_get_first(head);
-		printf("%d\n", (int *)ptr);
+		printf("%d\n", *ptr);
 	}
 	
 	*((int *)ptr) = 100;
-	printf("%d\n", array[6]);
+	
+	
+	for(i=0; i<10; i++)
+	{
+		printf("%d\n", array[i]);
+	}
 
 	//ll_free_list(head);
 	
